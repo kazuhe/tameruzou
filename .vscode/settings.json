@@ -1,0 +1,5 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true // コードアクション(ESLintの自動修正)を保存時に実行する設定
+  },
+}
