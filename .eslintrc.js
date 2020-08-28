@@ -10,11 +10,17 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint', // ESLintのTypeScriptプラグインのルールを適用できる様にする（/eslint-pluginは省略可）
+    'prettier',
     'react'
   ],
   extends: [
     'eslint:recommended', // ESLintのJavaScriptルールセットを適用
     'plugin:@typescript-eslint/recommended', // 型チェックが不要なルールを適用
+    'plugin:prettier/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/react',
+    'prettier/standard',
   ],
   globals: {
     Atomics: 'readonly',
