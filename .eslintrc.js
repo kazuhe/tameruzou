@@ -11,7 +11,8 @@ module.exports = {
   plugins: [
     '@typescript-eslint', // ESLintのTypeScriptプラグインのルールを適用できる様にする（/eslint-pluginは省略可）
     'prettier',
-    'react'
+    'react',
+    "react-hooks", // React公式のhookプラグイン
   ],
   extends: [
     'eslint:recommended', // ESLintのJavaScriptルールセットを適用
@@ -45,6 +46,10 @@ module.exports = {
     'prefer-arrow-callback': 'error', // コールバックでアロー関数を使用を強制
     'prefer-const': 'error', // 後に変更されることない変数はconstの使用を強制
     'prefer-spread': 'error', // apply()の代わりにspread構文の使用を強制
-    'require-yield': 'error' // yieldを持っていないジェネレーター関数を禁止
+    'require-yield': 'error', // yieldを持っていないジェネレーター関数を禁止
+
+    // React Hooks
+    "react-hooks/rules-of-hooks": "error", // Hookのルールをチェック
+    "react-hooks/exhaustive-deps": "warn" // 効果の依存関係をチェック
   }
 }

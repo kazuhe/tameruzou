@@ -1,0 +1,35 @@
+.iconButton {
+  align-items: center;
+  background-color: #179bd7;
+  border-radius: 25px;
+  display: flex;
+  height: 85px;
+  padding: 20px 30px;
+  width: 100%;
+
+  &_icon {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    height: 45px;
+    justify-content: center;
+    width: 45px;
+  }
+
+  &_text {
+    color: #fff;
+    margin-left: 20px;
+
+    h2 {
+      font-size: 15px;
+      margin-top: 3px;
+    }
+
+    p {
+      font-size: 11px;
+      margin: 0;
+      text-align: left;
+    }
+  }
+}
