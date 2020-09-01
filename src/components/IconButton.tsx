@@ -1,6 +1,4 @@
-import React, { useState } from 'react'
-
-import '../assets/scss/IconButton.scss'
+import React, { useState, FC } from 'react'
 
 type Props = {
   isDisabled?: boolean
@@ -11,7 +9,7 @@ type Props = {
   onClick(event: React.MouseEvent<HTMLButtonElement>): void
 }
 
-export const BasicButton = (props: Props): JSX.Element => {
+export const BasicButton: FC<Props> = (props: Props) => {
   const [toggle, setToggle] = useState(false)
 
   return (

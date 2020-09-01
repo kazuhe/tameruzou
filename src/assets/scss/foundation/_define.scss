@@ -1,0 +1,35 @@
+/*
+* Defines color
+*/
+$mainColor: #179bd7;
+$subColor: #222d65;
+$textColor: #343842;
+$highGray: #f7f7f7;
+$trueGray: #ccc;
+$deepGray: #888;
+
+/*
+* Defines Media query
+*/
+$breakpoint-up: ( 
+  'sm': 'screen and (min-width: 400px)',
+  'md': 'scrn and (min-width: 768px)',
+  'lg': 'scrn and (min-width: 1000px)',
+  'xl': 'scrn and (min-width: 1200px)',
+) !default;
+$breakpoint-down: ( 
+  'sm': 'screen and (max-width: 399px)',
+  'md': 'scrn and (max-width: 767px)',
+  'lg': 'scrn and (max-width: 999px)',
+  'xl': 'scrn and (max-width: 1199px)',
+) !default;
+@mixin mq-md($breakpoint: md) { //メインで使用するブレイクポイントを指定
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+@mixin mq-lg($breakpoint: lg) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}

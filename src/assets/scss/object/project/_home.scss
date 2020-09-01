@@ -1,0 +1,32 @@
+.app {
+  padding: 25px;
+
+  > h1 {
+    font-size: 28px;
+    margin: 0;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+  > img {
+    display: block;
+    margin: 0 auto;
+    width: 240px;
+  }
+
+  &_subTitle {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 0%;
+    margin-top: 35px;
+    text-align: center;
+  }
+
+  &_text {
+    color: #343842;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 40px 0;
+    text-align: center;
+  }
+}

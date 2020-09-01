@@ -24,6 +24,9 @@ module.exports = {
             'custom-properties',
             'declarations',
             'rules'
-        ]
+        ],
+        "at-rule-no-unknown": [true, {
+            "ignoreAtRules": ["function", "if", "for", "each", "include", "mixin", "content"]
+        }],
     }
 };
