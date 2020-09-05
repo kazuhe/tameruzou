@@ -1,11 +1,12 @@
 import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 
-import { BasicButton } from '../components/commom/icon_button'
+import { BasicButton } from '../commom/icon_button'
 
-import tameruzou from '../assets/images/tameruzou.svg'
-import graph from '../assets/images/graph.svg'
+import tameruzou from '../../assets/images/tameruzou.svg'
+import graph from '../../assets/images/graph.svg'
 
-const AppContainer: FC = () => {
+const Home: FC = () => {
   return (
     <div className="app">
       <img src={tameruzou} alt="" />
@@ -18,6 +19,10 @@ const AppContainer: FC = () => {
         <br />
         下のボタンから選択して簡単シミュレート！
       </p>
+      <nav>
+        <Link to="/">index</Link>
+        <Link to="/simulate">simulate</Link>
+      </nav>
       <BasicButton
         icon={graph}
         size="Big"
@@ -29,4 +34,4 @@ const AppContainer: FC = () => {
   )
 }
 
-export default AppContainer
+export default Home
