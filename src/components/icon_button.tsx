@@ -1,23 +1,22 @@
-import React, { useState, FC } from 'react'
+import React, { FC } from 'react'
+
+import './icon_button.scss'
 
 type Props = {
   isDisabled?: boolean
-  size: 'Big' | 'Small'
+  color: 'high' | 'deep'
   title: string
   text: string
-  icon?: string
+  icon: string
   onClick(event: React.MouseEvent<HTMLButtonElement>): void
 }
 
-export const BasicButton: FC<Props> = (props: Props) => {
-  const [toggle, setToggle] = useState(false)
-
+export const IconButton: FC<Props> = (props: Props) => {
   return (
     <button
-      className={'iconButton -' + props.size}
+      className={'iconButton -' + props.color}
       disabled={props.isDisabled || false}
       onClick={(e) => {
-        setToggle(!toggle)
         props.onClick(e)
       }}
     >

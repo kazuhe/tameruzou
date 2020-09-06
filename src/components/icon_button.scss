@@ -1,11 +1,22 @@
+@import '../styles/define';
+
 .iconButton {
   align-items: center;
-  background-color: $mainColor;
-  border-radius: 25px;
+  background-color: $deepGray;
+  border-radius: 2.5rem;
   display: flex;
   height: 85px;
+  max-width: 350px;
   padding: 20px 30px;
   width: 100%;
+
+  &.-high {
+    background-color: $mainColor;
+  }
+
+  &.-deep {
+    background-color: $subColor;
+  }
 
   &_icon {
     align-items: center;
@@ -22,13 +33,12 @@
     margin-left: 20px;
 
     h2 {
-      font-size: 15px;
+      font-size: 1.5rem;
       margin-top: 3px;
     }
 
     p {
-      font-size: 11px;
-      margin: 0;
+      font-size: 1.1rem;
       text-align: left;
     }
   }

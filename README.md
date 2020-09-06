@@ -1,15 +1,23 @@
-このリポジトリはReactの勉強の為に作られた何の変哲もないWebアプリである。  
-貯金を簡易にシミュレートする。
-
+- [アプリ詳細](#アプリ詳細)
 - [アプリ設計](#アプリ設計)
   - [Router](#router)
+  - [Deploy](#deploy)
 - [Git管理](#git管理)
+
+## アプリ詳細
+https://tameruzou.netlify.app/
+
+このリポジトリはReactの勉強の為に作られた何の変哲もないWebアプリである。  
+貯金を簡易にシミュレートすることができる。
 
 ## アプリ設計
 使用しているライブラリや実装の際に気をつけた点をまとめている。
 
 ### Router
-React 向けのルーティングモジュールは2020年現在デファクトスタンダードである「[React Router](https://github.com/ReactTraining/react-router)」を採用し、使用の際は`react-router-dom`をインストールする。
+ルーティングモジュールは2020年現在デファクトスタンダードである「[React Router](https://github.com/ReactTraining/react-router)」を採用し、`react-router-dom`をインストールして使用している。
+
+### Deploy
+Netlifyの無料枠を利用し当リポジトリと連携している。`master`ブランチに`push`すると自動でデプロイされる。
 
 ## Git管理
 コミットメッセージには必ずステータスを記載する。また、commitは可能な範囲で細かく行う。

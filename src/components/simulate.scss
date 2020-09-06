@@ -1,0 +1,19 @@
+@import '../styles/define';
+
+.simulate {
+  padding: 25px;
+
+  input {
+    background-color: $highGray;
+    border-radius: 10px;
+    padding: 15px 20px;
+  }
+
+  nav {
+    text-align: center;
+
+    a {
+      font-size: 1.4rem;
+    }
+  }
+}
