@@ -1,5 +1,6 @@
 - [アプリ詳細](#アプリ詳細)
 - [アプリ設計](#アプリ設計)
+  - [Component](#component)
   - [Router](#router)
   - [Deploy](#deploy)
 - [Git管理](#git管理)
@@ -12,6 +13,11 @@ https://tameruzou.netlify.app/
 
 ## アプリ設計
 使用しているライブラリや実装の際に気をつけた点をまとめている。
+
+### Component
+- 関数コンポーネントで見た目だけを整えた「Presentational Component（`Components`）」
+- 「Presentational Component」をインポートして`Hooks`や`HOC`で必要な機能を追加し、処理を担う「Container Component（`Containers`）」
+上記のそれぞれを`components/`と`containers/`に分けて、対応するファイルを同じ名前・同じ階層に置く
 
 ### Router
 ルーティングモジュールは2020年現在デファクトスタンダードである「[React Router](https://github.com/ReactTraining/react-router)」を採用し、`react-router-dom`をインストールして使用している。
