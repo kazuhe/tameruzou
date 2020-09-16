@@ -50,10 +50,6 @@
       padding: 15px 20px;
       width: 100%;
     }
-
-    input + label {
-      margin-top: 15px;
-    }
   }
   
   &_term {
@@ -63,10 +59,16 @@
     margin-left: -5px;
     margin-right: -5px;
 
-    > input {
+    > div {
       margin-left: 5px;
       margin-right: 5px;
+      margin-top: 15px;
+      width: 100%;
     }
+  }
+
+  &_warning {
+    color: $warning;
   }
 
   nav {
