@@ -5,16 +5,14 @@
   background-color: #031a6e;
   color: #fff;
   display: flex;
-  height: 100vh;
   justify-content: center;
+  min-height: 100vh;
   padding: 25px;
   position: relative;
 
   &::after {
     background-image: url('../images/lining.svg');
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     bottom: 0;
     content: '';
     left: 0;

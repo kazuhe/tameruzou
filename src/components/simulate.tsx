@@ -11,10 +11,7 @@ import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
 
 interface Props {
-  monthlyAmount: number
-  targetAmount: number
-  startDate: Date | null
-  endDate: Date | null
+  simulateItems: { startDate: Date | null; endDate: Date | null; targetAmount: number; monthlyAmount: string }
   handleInput: (value: number) => void
   handleStartDate: (date: Date | any) => void
   handleEndDate: (date: Date | any) => void
@@ -24,32 +21,31 @@ const SimulateComponent: FC<Props> = (props: Props) => (
   <div className="simulate">
     <div className="simulate_header">
       <p>毎月の必要貯金額</p>
-      {/* <div>¥ {props.targetAmount}</div> */}
-      <div>
-        ¥ {props.monthlyAmount}
-        <span>円</span> × {dayjs(props.endDate || '').diff(dayjs(props.startDate || ''), 'month')}
-        <span>ヶ月</span>
-      </div>
+      <div>¥ {props.simulateItems.monthlyAmount}</div>
     </div>
     <div className="simulate_body">
       <label>目標金額</label>
       <input
-        type="text"
+        // type="text"
+        type="number"
+        name="number"
+        min="1000"
+        step="1"
         onChange={(e) => props.handleInput(Number(e.target.value))}
         placeholder="1,000,000"
-        value={props.targetAmount}
+        value={props.simulateItems.targetAmount}
       />
       <label>期間</label>
       <div className="simulate_term">
         <DatePicker
-          selected={props.startDate}
+          selected={props.simulateItems.startDate}
           onChange={(date) => props.handleStartDate(date)}
           dateFormat="yyyy年MM月"
           placeholderText="開始期間"
           showMonthYearPicker
         />
         <DatePicker
-          selected={props.endDate}
+          selected={props.simulateItems.endDate}
           onChange={(date) => props.handleEndDate(date)}
           dateFormat="yyyy年MM月"
           placeholderText="終了期間"
@@ -57,8 +53,8 @@ const SimulateComponent: FC<Props> = (props: Props) => (
         />
       </div>
       <div className="simulate_warning">
-        {props.startDate != null && props.endDate != null
-          ? dayjs(props.endDate || 0).diff(dayjs(props.startDate || 0), 'month') > 0
+        {props.simulateItems.startDate != null && props.simulateItems.endDate != null
+          ? dayjs(props.simulateItems.endDate || 0).diff(dayjs(props.simulateItems.startDate || 0), 'month') > 0
             ? ''
             : '※開始期間より終了期間を後に設定してください'
           : ''}

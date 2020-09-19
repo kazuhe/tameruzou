@@ -1,5 +1,5 @@
 // React API
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 
 // Original components
 import SimulateComponent from '../components/simulate'
@@ -7,48 +7,66 @@ import SimulateComponent from '../components/simulate'
 // Third party library
 import dayjs from 'dayjs'
 
-// 毎月の必要貯金額を計算
-type CalcMonthlyAmount = (startDate: string | null, endDate: string | null, targetAmount: number) => number
+interface SimulateItems {
+  startDate: Date | null
+  endDate: Date | null
+  targetAmount: number
+  monthlyAmount: string
+}
 
-const calcMonthlyAmount: CalcMonthlyAmount = (startDate, endDate, targetAmount) => {
-  // nullチェック
-  if (startDate != null && endDate != null) {
-    const start = dayjs(startDate)
-    const end = dayjs(endDate)
-    const term = end.diff(start, 'month')
+const useSimulate = (simulateItems: SimulateItems): any => {
+  const [simulate, setSimulate] = useState(simulateItems)
 
-    if (end.isAfter(start)) {
-      return Math.floor(targetAmount / term)
-    }
+  const handleStartDate = (date: Date) => {
+    setSimulate({ ...simulate, startDate: date })
   }
 
-  return 0
+  const handleEndDate = (date: Date) => {
+    setSimulate({ ...simulate, endDate: date })
+  }
+
+  const handleInput = (value: number) => {
+    setSimulate({ ...simulate, targetAmount: value })
+  }
+
+  useEffect(() => {
+    // 毎月の必要貯金額を計算
+    const calcMonthlyAmount = () => {
+      if (simulate.startDate != null && simulate.endDate != null) {
+        const start = dayjs(simulate.startDate)
+        const end = dayjs(simulate.endDate)
+        const term = end.diff(start, 'month')
+
+        if (end.isAfter(start)) {
+          setSimulate({
+            ...simulate,
+            monthlyAmount: `${Math.floor(simulate.targetAmount / term)}円 × ${end.diff(start, 'month')}ヶ月`,
+          })
+
+          return Math.floor(simulate.targetAmount / term)
+        }
+      }
+    }
+    const calc = setInterval(calcMonthlyAmount, 1000)
+
+    return () => clearInterval(calc)
+  }, [simulate])
+
+  return [simulate, handleStartDate, handleEndDate, handleInput]
 }
 
 const SimulateContainer: FC = () => {
-  const [targetAmount, setTargetAmount] = useState(0)
-  const handleInput = (value: number) => {
-    setTargetAmount(value)
+  const simulateItems = {
+    startDate: null,
+    endDate: null,
+    targetAmount: 0,
+    monthlyAmount: 'Please input',
   }
-
-  const [startDate, setStartDate] = useState(null)
-  const handleStartDate = (date: Date | any) => {
-    setStartDate(date)
-  }
-
-  const [endDate, setEndDate] = useState(null)
-  const handleEndDate = (date: Date | any) => {
-    setEndDate(date)
-  }
-
-  const monthlyAmount = calcMonthlyAmount(startDate, endDate, targetAmount)
+  const [simulate, handleStartDate, handleEndDate, handleInput] = useSimulate(simulateItems)
 
   return (
     <SimulateComponent
-      monthlyAmount={monthlyAmount}
-      targetAmount={targetAmount}
-      startDate={startDate}
-      endDate={endDate}
+      simulateItems={simulate}
       handleInput={(value) => handleInput(value)}
       handleStartDate={(date) => handleStartDate(date)}
       handleEndDate={(date) => handleEndDate(date)}
