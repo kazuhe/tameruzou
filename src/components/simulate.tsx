@@ -9,9 +9,17 @@ import './simulate.scss'
 // Third party library
 import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css'
 
 interface Props {
-  simulateItems: { startDate: Date | null; endDate: Date | null; targetAmount: number; monthlyAmount: string }
+  simulateItems: {
+    startDate: Date | null
+    endDate: Date | null
+    targetAmount: number
+    monthlyAmount: string
+    inputMessage: boolean
+  }
   handleInput: (value: number) => void
   handleStartDate: (date: Date | any) => void
   handleEndDate: (date: Date | any) => void
@@ -25,16 +33,14 @@ const SimulateComponent: FC<Props> = (props: Props) => (
     </div>
     <div className="simulate_body">
       <label>目標金額</label>
-      <input
-        // type="text"
-        type="number"
-        name="number"
-        min="1000"
-        step="1"
-        onChange={(e) => props.handleInput(Number(e.target.value))}
-        placeholder="1,000,000"
-        value={props.simulateItems.targetAmount}
-      />
+      <Tippy content="半角数字を入力してください" visible={props.simulateItems.inputMessage} className="top-end">
+        <input
+          type="tel"
+          onChange={(e) => props.handleInput(Number(e.target.value))}
+          placeholder="1,000,000"
+          value={props.simulateItems.targetAmount}
+        />
+      </Tippy>
       <label>期間</label>
       <div className="simulate_term">
         <DatePicker

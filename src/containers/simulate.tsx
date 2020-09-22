@@ -12,6 +12,7 @@ interface SimulateItems {
   endDate: Date | null
   targetAmount: number
   monthlyAmount: string
+  inputMessage: boolean
 }
 
 const useSimulate = (simulateItems: SimulateItems): any => {
@@ -26,7 +27,15 @@ const useSimulate = (simulateItems: SimulateItems): any => {
   }
 
   const handleInput = (value: number) => {
-    setSimulate({ ...simulate, targetAmount: value })
+    // 数値を入力した場合
+    if (!isNaN(value)) {
+      setSimulate({ ...simulate, targetAmount: value, inputMessage: false })
+
+      return
+    }
+
+    setSimulate({ ...simulate, inputMessage: true }) // 目標金額のツールチップ（エラー）を表示
+    console.log('str')
   }
 
   useEffect(() => {
@@ -61,6 +70,7 @@ const SimulateContainer: FC = () => {
     endDate: null,
     targetAmount: 0,
     monthlyAmount: 'Please input',
+    inputMessage: false,
   }
   const [simulate, handleStartDate, handleEndDate, handleInput] = useSimulate(simulateItems)
 
