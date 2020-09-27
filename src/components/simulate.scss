@@ -2,33 +2,38 @@
 
 .simulate {
   &_header {
-    background-color: #031a6e;
+    // background:linear-gradient($mainColor, $subColor);
+    background-color: $subColor;
     color: #fff;
     font-weight: 700;
-    padding: 120px 25px 25px;
+    padding: 100px 25px 25px;
     position: relative;
 
-    &::after {
-      background-image: url('../images/lining.svg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      bottom: 25px;
-      content: '';
+    > a {
+      display: block;
+      left: 25px;
+      position: absolute;
+      top: 30px;
+      z-index: 1;
+    }
+
+    > svg {
+      bottom: 0;
+      display: block;
       left: 0;
       position: absolute;
-      right: 0;
-      top: 0;
       width: 100%;
     }
+  }
+
+  &_result {
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    display: grid;
+    font-size: 3rem;
+    z-index: 1;
 
     > p {
       font-size: 1.4rem;
-    }
-
-    > div {
-      border-bottom: 1px solid rgba(255, 255, 255, .2);
-      font-size: 3rem;
     }
   }
 
@@ -40,13 +45,12 @@
       display: block;
       font-size: 1.5rem;
       font-weight: 700;
-      padding-left: 5px;
+      padding: 0 15px 5px;
     }
 
     input {
       background-color: $highGray;
       border-radius: 10px;
-      margin-top: 5px;
       max-width: 350px;
       padding: 15px 20px;
       width: 100%;
@@ -71,15 +75,19 @@
     }
   }
 
-  &_warning {
-    color: $warning;
-  }
-
   nav {
     text-align: center;
 
     a {
       font-size: 1.4rem;
     }
+  }
+}
+
+.tippy-box.tameruzou {
+  background-color: $warning;
+
+  .tippy-arrow {
+    color: $warning;
   }
 }

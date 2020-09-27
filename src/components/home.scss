@@ -2,8 +2,6 @@
 
 .home {
   align-items: center;
-  background-color: #031a6e;
-  color: #fff;
   display: flex;
   justify-content: center;
   min-height: 100vh;
@@ -13,6 +11,7 @@
   &::after {
     background-image: url('../images/lining.svg');
     background-position: center;
+    background-size: cover;
     bottom: 0;
     content: '';
     left: 0;
@@ -33,16 +32,11 @@
   }
 
   &_icon {
-    background-color: $mainColor;
-    border-radius: 160px;
-    height: 160px;
     margin: 0 auto;
-    overflow: hidden;
-    padding: 5px;
-    width: 160px;
+    max-width: 350px;
 
     > img {
-      transform: translate(5px, 5px);
+      width: 100%;
     }
   }
 
@@ -58,8 +52,8 @@
   &_text {
     font-size: 4rem;
     font-weight: 700;
-    line-height: 1.3;
-    margin: 5px 0 50px;
+    line-height: 1.2;
+    margin: 10px 0 50px;
     text-align: center;
   }
 

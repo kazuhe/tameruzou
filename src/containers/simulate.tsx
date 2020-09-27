@@ -12,9 +12,11 @@ interface SimulateItems {
   endDate: Date | null
   targetAmount: number
   monthlyAmount: string
-  inputMessage: boolean
+  isTargetAmountAlert: boolean
+  isTermAlert: boolean
 }
 
+// シミュレートのカスタムフック
 const useSimulate = (simulateItems: SimulateItems): any => {
   const [simulate, setSimulate] = useState(simulateItems)
 
@@ -23,19 +25,28 @@ const useSimulate = (simulateItems: SimulateItems): any => {
   }
 
   const handleEndDate = (date: Date) => {
-    setSimulate({ ...simulate, endDate: date })
+    setSimulate({ ...simulate, endDate: date, isTermAlert: isTermAlert() })
   }
 
+  // 期間の適性判定
+  const isTermAlert = () => {
+    if (simulate.startDate != null && simulate.endDate != null) {
+      return dayjs(simulateItems.endDate || 0).diff(dayjs(simulateItems.startDate || 0), 'month') > 0 ? true : false
+    }
+
+    return false
+  }
+
+  // 目標金額の状態管理
   const handleInput = (value: number) => {
     // 数値を入力した場合
     if (!isNaN(value)) {
-      setSimulate({ ...simulate, targetAmount: value, inputMessage: false })
+      setSimulate({ ...simulate, targetAmount: value, isTargetAmountAlert: false })
 
       return
     }
 
-    setSimulate({ ...simulate, inputMessage: true }) // 目標金額のツールチップ（エラー）を表示
-    console.log('str')
+    setSimulate({ ...simulate, isTargetAmountAlert: true }) // 目標金額のツールチップ（エラー）を表示
   }
 
   useEffect(() => {
@@ -70,7 +81,8 @@ const SimulateContainer: FC = () => {
     endDate: null,
     targetAmount: 0,
     monthlyAmount: 'Please input',
-    inputMessage: false,
+    isTargetAmountAlert: false,
+    isTermAlert: false,
   }
   const [simulate, handleStartDate, handleEndDate, handleInput] = useSimulate(simulateItems)
 

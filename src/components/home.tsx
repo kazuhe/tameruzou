@@ -22,7 +22,7 @@ const Home: FC = () => {
           <br />
           the future
         </p>
-        <Button color="high" text="Start" onClick={() => history.push('/simulate')} />
+        <Button color="deep" text="Start" onClick={() => history.push('/simulate')} />
       </div>
     </div>
   )

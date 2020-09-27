@@ -6,6 +6,7 @@
   - [Router](#router)
   - [Deploy](#deploy)
   - [Datepicker](#datepicker)
+  - [Tooltip](#tooltip)
   - [CSS Naming rule](#css-naming-rule)
 - [Git管理](#git管理)
 
@@ -31,6 +32,9 @@ Netlifyの無料枠を利用し当リポジトリと連携している。`master
 
 ### Datepicker
 日付入力には[react-datepicker](https://github.com/Hacker0x01/react-datepicker/)を使用している。
+
+### Tooltip
+ツールチップは[@tippyjs/react](https://github.com/atomiks/tippyjs-react)を使用している。
 
 ### CSS Naming rule
 BEMの短縮形を採用する。
