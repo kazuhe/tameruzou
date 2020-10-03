@@ -1,5 +1,3 @@
-<img src="https://github.com/kazuhe/tameruzou/blob/master/src/images/tameruzou.svg" width="150" alt="tameruzou">
-
 - [アプリ詳細](#アプリ詳細)
 - [アプリ設計](#アプリ設計)
   - [Component](#component)
