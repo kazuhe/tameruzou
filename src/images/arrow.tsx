@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 
 type Props = {
   size?: number
-  color?: string
 }
 
 export const Arrow: FC<Props> = (props: Props) => {
@@ -13,7 +12,7 @@ export const Arrow: FC<Props> = (props: Props) => {
       height={props.size || 24}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={props.color || '#fff'}
+      stroke="#fff"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 // SVG Component
 import { Arrow } from '../images/arrow'
-import { Wave } from '../images/wave'
 
 // Css
 import 'react-datepicker/dist/react-datepicker.css'
@@ -40,7 +39,6 @@ const SimulateComponent: FC<Props> = (props: Props) => (
         <p>毎月の必要貯金額</p>
         <div className="simulate_result">¥ {props.simulateItems.monthlyAmount}</div>
       </div>
-      <Wave />
     </div>
     <div className="simulate_body">
       <label>目標金額</label>

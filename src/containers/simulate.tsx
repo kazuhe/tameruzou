@@ -39,9 +39,11 @@ const useSimulate = (simulateItems: SimulateItems): any => {
 
   // 目標金額の状態管理
   const handleInput = (value: number) => {
+    // const re = value.replace(',', '')
+
     // 数値を入力した場合
     if (!isNaN(value)) {
-      setSimulate({ ...simulate, targetAmount: value, isTargetAmountAlert: false })
+      setSimulate({ ...simulate, targetAmount: Number(value.toLocaleString()), isTargetAmountAlert: false })
 
       return
     }

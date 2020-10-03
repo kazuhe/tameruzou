@@ -1,0 +1,20 @@
+@import '../styles/define';
+
+.header {
+  left: 0;
+  position: fixed;
+  top: 0;
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+  padding: 15px 25px 0;
+}
+
+.return {
+  > svg {
+    display: block;
+    stroke: $subColor;
+  }
+}
