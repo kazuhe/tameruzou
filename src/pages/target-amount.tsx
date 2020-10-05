@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import { Header } from '../components/header'
 import { Button } from '../components/button'
 import { Step } from '../components/step'
-import { Input } from '../components/input'
+import { InputMoneyContainer } from '../containers/input-money'
 
 // Css
 import styles from '../styles/target-amount.module.scss'
@@ -19,7 +19,7 @@ export const TargetAmount: FC = () => {
       <Header />
       <Step current={1} title="目標貯金額を入力してください"></Step>
       <div className={styles.content}>
-        <Input />
+        <InputMoneyContainer />
       </div>
       <div className={styles.btn}>
         <Button color="deep" text="次へ" onClick={() => history.push('/term')} />

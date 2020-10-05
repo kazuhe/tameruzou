@@ -6,14 +6,15 @@ import './styles/style.scss'
 import Routes from './routes'
 import * as serviceWorker from './serviceWorker'
 
+// Redux Toolkit
+import { Provider } from 'react-redux'
+import { store } from './stores/index'
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <Routes />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 )
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister()
