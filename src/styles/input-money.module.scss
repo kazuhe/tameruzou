@@ -15,7 +15,7 @@
 
   > input {
     border-radius: 0;
-    font-size: 2.5rem;
+    font-size: 3rem;
     padding: 5px;
     text-align: right;
     width: 100%;
@@ -24,5 +24,24 @@
   > span {
     font-size: 1.2rem;
     font-weight: 500;
+  }
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+
+  > li {
+    border: 1px solid $mainColor;
+    border-radius: 5px;
+    line-height: 1;
+    margin-right: 5px;
+    padding: 7px 7px 4px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

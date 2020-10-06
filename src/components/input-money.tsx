@@ -12,11 +12,14 @@ interface Props {
   targetAmount: number
   isError: boolean
   isDisabled?: boolean
-  handleInput: (value: number) => void
+  setMoney: (value: number) => void
+  addMoney: (value: number) => void
 }
 
-export const InputMoneyComponent: FC<Props> = (props: Props) => {
-  return (
+const candidates = [5000, 10000, 100000, 1000000]
+
+export const InputMoneyComponent: FC<Props> = (props: Props) => (
+  <>
     <Tippy content="半角数字を入力してください" visible={props.isError} className="tameruzou">
       <div className={styles.wrap}>
         <label htmlFor="inputMoney">目標金額</label>
@@ -24,10 +27,17 @@ export const InputMoneyComponent: FC<Props> = (props: Props) => {
           type="tel"
           name="inputMoney"
           value={props.targetAmount.toLocaleString()}
-          onChange={(e) => props.handleInput(Number(e.target.value.split(',').join('')))}
+          onChange={(e) => props.setMoney(Number(e.target.value.split(',').join('')))}
         />
         <span>円</span>
       </div>
     </Tippy>
-  )
-}
+    <ul className={styles.list}>
+      {candidates.map((candidate) => (
+        <li key={candidate} onClick={() => props.addMoney(candidate)}>
+          +{candidate.toLocaleString()}
+        </li>
+      ))}
+    </ul>
+  </>
+)

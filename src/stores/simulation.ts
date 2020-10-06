@@ -25,25 +25,18 @@ const simulation = createSlice({
   reducers: {
     setTargetAmount: (state, action) => {
       state.targetAmount.money = action.payload
-      // return Object.assign({}, state, {
-      //   targetAmount: {
-      //     money: action.payload,
-      //   },
-      // })
+    },
+    addTargetAmount: (state, action) => {
+      state.targetAmount.money = state.targetAmount.money + action.payload
     },
     handlError: (state, action) => {
       state.targetAmount.isError = action.payload
-      // return Object.assign({}, state, {
-      //   targetAmount: {
-      //     isError: action.payload,
-      //   },
-      // })
     },
   },
 })
 
 // Action Creatorsをエクスポート
-export const { setTargetAmount, handlError } = simulation.actions
+export const { setTargetAmount, addTargetAmount, handlError } = simulation.actions
 
 // Reducerをエクスポート
 export default simulation.reducer

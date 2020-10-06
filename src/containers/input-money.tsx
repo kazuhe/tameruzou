@@ -9,15 +9,16 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../stores'
 import { useDispatch } from 'react-redux'
 
-import { setTargetAmount, handlError } from '../stores/simulation'
+import { setTargetAmount, addTargetAmount, handlError } from '../stores/simulation'
 
 export const InputMoneyContainer: FC = () => {
   const targetAmount = useSelector((state: RootState) => state.simulation.targetAmount.money)
   const isError = useSelector((state: RootState) => state.simulation.targetAmount.isError)
   const dispatch = useDispatch()
 
-  // 入力がnumberかチェック
-  const handleInput = (value: number) => {
+  // 目標金額をセット
+  const setMoney = (value: number) => {
+    // 入力がnumberかチェック
     if (!isNaN(value)) {
       dispatch(handlError(false))
       dispatch(setTargetAmount(value))
@@ -26,12 +27,18 @@ export const InputMoneyContainer: FC = () => {
     }
   }
 
+  // 目標金額を追加
+  const addMoney = (value: number) => {
+    dispatch(addTargetAmount(value))
+  }
+
   return (
     <InputMoneyComponent
       targetAmount={targetAmount}
       isError={isError}
       isDisabled={false}
-      handleInput={(value) => handleInput(value)}
+      setMoney={(value) => setMoney(value)}
+      addMoney={(value) => addMoney(value)}
     />
   )
 }
