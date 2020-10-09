@@ -26,7 +26,7 @@ export const Home: FC = () => {
         <HomeIcon />
       </div>
       <div className={styles.btn}>
-        <Button color="deep" text="Start" onClick={() => history.push('/target-amount')} />
+        <Button text="Start" onClick={() => history.push('/target-amount')} />
       </div>
     </div>
   )

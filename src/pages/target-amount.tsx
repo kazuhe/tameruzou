@@ -2,6 +2,10 @@
 import React, { FC } from 'react'
 import { useHistory } from 'react-router-dom'
 
+// Redux Toolkit
+import { useSelector } from 'react-redux'
+import { RootState } from '../stores'
+
 // Original components
 import { Header } from '../components/header'
 import { Button } from '../components/button'
@@ -13,6 +17,7 @@ import styles from '../styles/target-amount.module.scss'
 
 export const TargetAmount: FC = () => {
   const history = useHistory()
+  const targetAmount = useSelector((state: RootState) => state.simulation.targetAmount.money)
 
   return (
     <div className={styles.targetAmount}>
@@ -22,7 +27,7 @@ export const TargetAmount: FC = () => {
         <InputMoneyContainer />
       </div>
       <div className={styles.btn}>
-        <Button color="deep" text="次へ" onClick={() => history.push('/term')} />
+        <Button text="次へ" isDisabled={targetAmount > 0 ? false : true} onClick={() => history.push('/term')} />
       </div>
     </div>
   )

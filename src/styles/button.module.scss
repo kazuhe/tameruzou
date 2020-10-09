@@ -1,8 +1,10 @@
 @import '../styles/define';
 
 .button {
-  background-color: $deepGray;
+  /* ! */
+  background:linear-gradient($mainColor, $subColor);
   border-radius: 5px;
+  color: #fff;
   display: block;
   font-size: 1.4rem;
   font-weight: 700;
@@ -10,16 +12,10 @@
   margin-right: auto;
   max-width: 350px;
   padding: 17px 30px;
-  width: 275px;
+  width: 275px;  
+}
 
-  &.-high {
-    background-color: #fff;
-    color: $mainColor;
-  }
-
-  &.-deep {
-    background:linear-gradient($mainColor, $subColor);
-    color: #fff;
-  }
-
+.disabled {
+  background: $deepGray;
+  composes: button;
 }

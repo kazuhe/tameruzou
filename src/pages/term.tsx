@@ -18,7 +18,7 @@ export const Term: FC = () => {
       <Header />
       <Step current={2} title="貯金の期間を選んでください"></Step>
       <div className={styles.btn}>
-        <Button color="deep" text="次へ" onClick={() => history.push('/target-amount')} />
+        <Button text="次へ" onClick={() => history.push('/target-amount')} />
       </div>
     </div>
   )

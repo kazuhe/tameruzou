@@ -1,11 +1,12 @@
 - [アプリ詳細](#アプリ詳細)
 - [アプリ設計](#アプリ設計)
   - [Component](#component)
+  - [状態管理](#状態管理)
   - [Router](#router)
   - [Deploy](#deploy)
   - [Datepicker](#datepicker)
   - [Tooltip](#tooltip)
-  - [CSS Naming rule](#css-naming-rule)
+  - [CSS](#css)
 - [Git管理](#git管理)
 
 ## アプリ詳細
@@ -22,6 +23,10 @@ https://tameruzou.netlify.app/
 - 「Presentational Component」をインポートして`Hooks`や`HOC`で必要な機能を追加し、処理を担う「Container Component（`Containers`）」  
 上記のそれぞれを`components/`と`containers/`に分けて、対応するファイルを同じ名前・同じ階層に置く。
 
+### 状態管理
+状態管理にはRedux公式が推奨している`Redux Toolkit`を使用。
+`dispatch`は「Container Component（`Containers`）」からのみ行う。参照はどこからしても良い。  
+
 ### Router
 ルーティングモジュールは2020年現在デファクトスタンダードである「[React Router](https://github.com/ReactTraining/react-router)」を採用し、`react-router-dom`をインストールして使用している。
 
@@ -34,19 +39,9 @@ Netlifyの無料枠を利用し当リポジトリと連携している。`master
 ### Tooltip
 ツールチップは[@tippyjs/react](https://github.com/atomiks/tippyjs-react)を使用している。
 
-### CSS Naming rule
-BEMの短縮形を採用する。
-冗長になるので、`-modifier`は別クラスとして扱う。
-```html
-<div class="block_element -modifier">
-```
-```scss
-.block_element {
-  &.-modifier {
-    // ~~~
-  }
-}
-```
+### CSS
+CSSは`CSS Modules`を採用。BEMの短縮形を採用。
+ひとつのコンポーネントに対応するCSSファイルを`styles/`配下に配置する。
 
 ## Git管理
 コミットメッセージには必ずステータスを記載する。また、commitは可能な範囲で細かく行う。

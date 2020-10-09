@@ -26,7 +26,10 @@ module.exports = {
             'rules'
         ],
         "at-rule-no-unknown": [true, {
-            "ignoreAtRules": ["function", "if", "for", "each", "include", "mixin", "content"]
+            "ignoreAtRules": ["function", "if", "for", "each", "include", "mixin", "content", "composes"]
         }],
+        "property-no-unknown": [true, {
+            "ignoreProperties": ['composes']
+        }]
     }
 };

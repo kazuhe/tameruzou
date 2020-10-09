@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 
-import './button.scss'
+// Css
+import styles from '../styles/button.module.scss'
 
 type Props = {
   isDisabled?: boolean
-  color: 'high' | 'deep'
   text: string
   onClick(event: React.MouseEvent<HTMLButtonElement>): void
 }
@@ -12,7 +12,7 @@ type Props = {
 export const Button: FC<Props> = (props: Props) => {
   return (
     <button
-      className={'button -' + props.color}
+      className={props.isDisabled ? styles.disabled : styles.button}
       disabled={props.isDisabled || false}
       onClick={(e) => {
         props.onClick(e)
