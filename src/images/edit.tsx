@@ -4,7 +4,7 @@ type Props = {
   size?: number
 }
 
-export const Arrow: FC<Props> = (props: Props) => {
+export const Edit: FC<Props> = (props: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,8 @@ export const Arrow: FC<Props> = (props: Props) => {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M19 12H6M12 5l-7 7 7 7" />
+      <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+      <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
     </svg>
   )
 }
