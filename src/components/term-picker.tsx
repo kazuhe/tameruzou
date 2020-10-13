@@ -8,9 +8,11 @@ import styles from '../styles/term-picker.module.scss'
 import { Edit } from '../images/edit'
 
 // Third party library
-import DatePicker from 'react-datepicker'
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
+import DatePicker, { registerLocale } from 'react-datepicker'
+import ja from 'date-fns/locale/ja'
+registerLocale('ja', ja)
 
 interface Props {
   startDate: Date | null
@@ -34,6 +36,7 @@ export const TermPickerComponent: FC<Props> = (props: Props) => (
           dateFormat="yyyy年MM月"
           placeholderText={placeholderText}
           showMonthYearPicker
+          locale="ja"
         />
         <Edit size={18} />
       </div>
@@ -45,6 +48,7 @@ export const TermPickerComponent: FC<Props> = (props: Props) => (
           dateFormat="yyyy年MM月"
           placeholderText={placeholderText}
           showMonthYearPicker
+          locale="ja"
         />
         <Edit size={18} />
       </div>

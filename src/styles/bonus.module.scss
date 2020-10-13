@@ -1,0 +1,22 @@
+@import '../styles/define';
+
+.wrap {
+  padding-top: 75px;
+}
+
+.btn {
+  margin-top: 50px;
+}
+
+.content {
+  margin-top: 50px;
+  padding: 0 25px;
+}
+
+.link {
+  color: $textColor;
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+  text-decoration: underline;
+}

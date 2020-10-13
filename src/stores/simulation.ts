@@ -10,6 +10,10 @@ type State = {
     endDate: Date | null
     isTermError: boolean
   }
+  bonus: {
+    number: number
+    rate: number
+  }
 }
 
 const initialState: State = {
@@ -21,6 +25,10 @@ const initialState: State = {
     startDate: null,
     endDate: null,
     isTermError: false,
+  },
+  bonus: {
+    number: 0,
+    rate: 0,
   },
 }
 
@@ -54,6 +62,14 @@ const simulation = createSlice({
     handleTermError: (state, action) => {
       state.term.isTermError = action.payload
     },
+
+    // bonus
+    setBonusNum: (state, action) => {
+      state.bonus.number = action.payload
+    },
+    setBonusRate: (state, action) => {
+      state.bonus.rate = action.payload
+    },
   },
 })
 
@@ -65,6 +81,8 @@ export const {
   setStartDate,
   endStartDate,
   handleTermError,
+  setBonusNum,
+  setBonusRate,
 } = simulation.actions
 
 // Reducerをエクスポート
