@@ -1,13 +1,13 @@
 @import '../styles/define';
 
-.unit {
+.wrap {
   position: relative;
 
   > p {
     color: $deepGray;
     font-size: 1.2rem;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1.4;
     min-width: 60px;
   }
 
@@ -24,42 +24,110 @@
     stroke: $deepGray;
   }
 
-  input {
-    background: $highGray;
-    border-radius: 5px;
-    font-size: 1.8rem;
-    margin-top: 5px;
-    padding: 14px 15px 15px;
-    width: 100%;
+  * + p {
+    margin-top: 50px;
+  }
+}
+
+.message {
+  align-items: center;
+  background: $highGray;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.form {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+
+  > div {
+    align-items: baseline;
+    border-bottom: 1px solid $highGray;
+    display: flex;
+    margin-right: 10px;
+
+    &:first-child {
+      width: 80px;
+    }
+
+    &:nth-child(2) {
+      width: 200px;
+    }
+
+    > span {
+      color: $deepGray;
+      font-size: 1.2rem;
+      white-space: nowrap;
+    }
+
+    > svg {
+      display: block;
+      stroke: $deepGray;
+      transform: translateY(4px);
+    }
   }
 
-  &+.unit {
-    margin-top: 40px;
+  select, input {
+    font-size: 1.8rem;
+    padding: 5px 10px;
+  }
+
+  select {
+    appearance: none;
+  }
+
+  input {
+    text-align: right;
+  }
+
+  button {
+    align-items: center;
+    background:linear-gradient($mainColor, $subColor);
+    border-radius: 25px;
+    display: flex;
+    height: 25px;
+    justify-content: center;
+    width: 25px;
+
+    > svg {
+      display: block;
+      stroke: #fff;
+    }
   }
 }
 
 .list {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
+  border-top: 1px solid $highGray;
   margin-top: 10px;
+  padding-top: 5px;
 
   > li {
-    border: 1px solid $mainColor;
-    border-radius: 5px;
-    flex: auto;
-    line-height: 1;
-    margin-right: 10px;
-    padding: 7px 7px 4px;
-    text-align: center;
+    align-items: center;
+    display: flex;
+    font-size: 1.6rem;
+    justify-content: space-between;
+    padding: 5px 0;
 
-    &:last-child {
-      margin-right: 0;
+    > span:first-child {
+      background: $highGray;
+      border-radius: 5px;
+      padding: 2px 10px 0;
+      text-align: center;
+      width: 60px;
+    }
+
+    > span:nth-child(2) {
+      display: block;
+      flex-grow: 1;
+      padding: 0 10px;
     }
   }
 
-  .current {
-    background-color: $subColor;
-    color: #fff;
+  > button > svg {
+    stroke: $deepGray;
   }
 }

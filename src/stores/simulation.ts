@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { Bonus } from '../types'
 
 type State = {
   targetAmount: {
@@ -11,8 +12,8 @@ type State = {
     isTermError: boolean
   }
   bonus: {
-    number: number
-    rate: number
+    bonuses: Bonus[]
+    isBonusError: boolean
   }
 }
 
@@ -27,8 +28,8 @@ const initialState: State = {
     isTermError: false,
   },
   bonus: {
-    number: 0,
-    rate: 0,
+    bonuses: [],
+    isBonusError: false,
   },
 }
 
@@ -63,12 +64,15 @@ const simulation = createSlice({
       state.term.isTermError = action.payload
     },
 
-    // bonus
-    setBonusNum: (state, action) => {
-      state.bonus.number = action.payload
+    // bonuses
+    addBonus: (state, action) => {
+      state.bonus.bonuses = [action.payload, ...state.bonus.bonuses]
     },
-    setBonusRate: (state, action) => {
-      state.bonus.rate = action.payload
+    deleteBonus: (state, action) => {
+      state.bonus.bonuses = state.bonus.bonuses.filter((bonus) => bonus.id !== action.payload.id)
+    },
+    handleBonusError: (state, action) => {
+      state.bonus.isBonusError = action.payload
     },
   },
 })
@@ -81,8 +85,9 @@ export const {
   setStartDate,
   endStartDate,
   handleTermError,
-  setBonusNum,
-  setBonusRate,
+  addBonus,
+  deleteBonus,
+  handleBonusError,
 } = simulation.actions
 
 // Reducerをエクスポート

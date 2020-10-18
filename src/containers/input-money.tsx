@@ -35,7 +35,8 @@ export const InputMoneyContainer: FC = () => {
 
   return (
     <InputMoneyComponent
-      targetAmount={targetAmount}
+      title="目標金額"
+      money={targetAmount}
       isError={isError}
       isDisabled={false}
       setMoney={(value) => setMoney(value)}

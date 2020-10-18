@@ -9,7 +9,8 @@ import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
 
 interface Props {
-  targetAmount: number
+  title: string
+  money: number
   isError: boolean
   isDisabled?: boolean
   setMoney: (value: number) => void
@@ -22,11 +23,11 @@ export const InputMoneyComponent: FC<Props> = (props: Props) => (
   <>
     <Tippy content="半角数字を入力してください" visible={props.isError} className="tameruzou">
       <div className={styles.wrap}>
-        <label htmlFor="inputMoney">目標金額</label>
+        <label htmlFor="inputMoney">{props.title}</label>
         <input
           type="tel"
           name="inputMoney"
-          value={props.targetAmount.toLocaleString()}
+          value={props.money.toLocaleString()}
           onChange={(e) => props.setMoney(Number(e.target.value.split(',').join('')))}
         />
         <span>円</span>
