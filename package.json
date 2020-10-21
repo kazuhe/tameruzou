@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -44,6 +45,7 @@
   "devDependencies": {
     "@reduxjs/toolkit": "^1.4.0",
     "@tippyjs/react": "^4.1.0",
+    "@types/animejs": "^3.1.2",
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/prettier": "^2.1.0",
     "@types/react-datepicker": "^3.1.1",

@@ -22,8 +22,8 @@ export const Bonus: FC = () => {
         <BonusListContainer />
       </div>
       <div className={styles.btn}>
-        <Button text="次へ" onClick={() => history.push('/term')} />
-        <p className={styles.link} onClick={() => history.push('/term')}>
+        <Button text="次へ" onClick={() => history.push('/result')} />
+        <p className={styles.link} onClick={() => history.push('/result')}>
           スキップ
         </p>
       </div>
