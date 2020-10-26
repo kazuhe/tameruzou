@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Bonus } from '../types'
+import { Bonus, Month } from '../types'
 
 type State = {
   targetAmount: {
@@ -12,6 +12,7 @@ type State = {
     isTermError: boolean
   }
   bonus: {
+    months: Month
     bonuses: Bonus[]
     isBonusError: boolean
   }
@@ -28,6 +29,20 @@ const initialState: State = {
     isTermError: false,
   },
   bonus: {
+    months: {
+      1: false,
+      2: false,
+      3: false,
+      4: false,
+      5: false,
+      6: false,
+      7: false,
+      8: false,
+      9: false,
+      10: false,
+      11: false,
+      12: false,
+    },
     bonuses: [],
     isBonusError: false,
   },
@@ -65,6 +80,23 @@ const simulation = createSlice({
     },
 
     // bonuses
+    toggleBonusMonth: (state, action) => {
+      const key: keyof Month = action.payload
+      console.log(key)
+      state.bonus.months[key] = !state.bonus.months[key]
+
+      // Object.keys(state.bonus.months).filter((key) => key == action.payload.id)
+      // Object.entries(state.bonus.months).forEach(([key, value]) => {
+      //   const numKey = Number(key)
+      //   console.log(key)
+      //   console.log(action.payload)
+      //   console.log(state.bonus.months[1])
+      //   if (key == action.payload) {
+      //     // console.log(key)
+      //     // state.bonus.months.item(key) = !state.bonus.months.item(key)
+      //   }
+      // })
+    },
     addBonus: (state, action) => {
       state.bonus.bonuses = [action.payload, ...state.bonus.bonuses]
     },
@@ -85,6 +117,7 @@ export const {
   setStartDate,
   endStartDate,
   handleTermError,
+  toggleBonusMonth,
   addBonus,
   deleteBonus,
   handleBonusError,

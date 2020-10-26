@@ -6,26 +6,23 @@ import { useHistory } from 'react-router-dom'
 import { Header } from '../components/header'
 import { Button } from '../components/button'
 import { Step } from '../components/step'
-import { BonusListContainer } from '../containers/bonus-list'
+import { BonusMonthContainer } from '../containers/bonus-month'
 
 // Css
 import styles from '../styles/bonus.module.scss'
 
-export const Bonus: FC = () => {
+export const BonusMonth: FC = () => {
   const history = useHistory()
 
   return (
     <div className={styles.wrap}>
       <Header />
-      <Step current={3} title="ボーナス月の設定をしてください"></Step>
+      <Step current={3} title="ボーナス月を設定してください"></Step>
       <div className={styles.content}>
-        <BonusListContainer />
+        <BonusMonthContainer />
       </div>
       <div className={styles.btn}>
-        <Button text="次へ" onClick={() => history.push('/result')} />
-        <p className={styles.link} onClick={() => history.push('/result')}>
-          スキップ
-        </p>
+        <Button text="次へ" onClick={() => history.push('/bonus-money')} />
       </div>
     </div>
   )

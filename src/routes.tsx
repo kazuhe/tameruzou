@@ -5,7 +5,8 @@ import { Home } from './pages/home'
 import Simulate from './containers/simulate'
 import { TargetAmount } from './pages/target-amount'
 import { Term } from './pages/term'
-import { Bonus } from './pages/bonus'
+import { BonusMonth } from './pages/bonus-month'
+import { BonusMoney } from './pages/bonus-money'
 import { Result } from './pages/result'
 
 const Routes: FC = () => {
@@ -16,7 +17,8 @@ const Routes: FC = () => {
         <Route path="/simulate" component={Simulate} />
         <Route path="/target-amount" component={TargetAmount} />
         <Route path="/term" component={Term} />
-        <Route path="/bonus" component={Bonus} />
+        <Route path="/bonus-month" component={BonusMonth} />
+        <Route path="/bonus-money" component={BonusMoney} />
         <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>

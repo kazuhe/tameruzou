@@ -101,16 +101,21 @@
 }
 
 .list {
-  border-top: 1px solid $highGray;
-  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   padding-top: 5px;
 
   > li {
-    align-items: center;
-    display: flex;
+    border: 1px solid $mainColor;
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 1.6rem;
-    justify-content: space-between;
-    padding: 5px 0;
+    line-height: 1;
+    margin-top: 10px;
+    padding: 10px 7px 8px;
+    text-align: center;
+    width: 23%;
 
     > span:first-child {
       background: $highGray;
@@ -125,6 +130,11 @@
       flex-grow: 1;
       padding: 0 10px;
     }
+  }
+
+  > .active {
+    background:linear-gradient($mainColor, $subColor);
+    color: #fff;
   }
 
   > button > svg {

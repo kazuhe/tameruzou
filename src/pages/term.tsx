@@ -32,7 +32,7 @@ export const Term: FC = () => {
         <Button
           text="次へ"
           isDisabled={startDate === null || endDate === null || isError}
-          onClick={() => history.push('/bonus')}
+          onClick={() => history.push('/bonus-month')}
         />
       </div>
     </div>
