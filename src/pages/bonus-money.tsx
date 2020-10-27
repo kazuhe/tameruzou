@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import { Header } from '../components/header'
 import { Button } from '../components/button'
 import { Step } from '../components/step'
-import { BonusMonthContainer } from '../containers/bonus-month'
+import { BonusMoneyContainer } from '../containers/bonus-money'
 
 // Css
 import styles from '../styles/bonus.module.scss'
@@ -17,12 +17,12 @@ export const BonusMoney: FC = () => {
   return (
     <div className={styles.wrap}>
       <Header />
-      <Step current={4} title="ボーナス月の貯金額を設定してください"></Step>
+      <Step current={4} title="ボーナス月の貯金額を入力してください" optional={true} />
       <div className={styles.content}>
-        <BonusMonthContainer />
+        <BonusMoneyContainer />
       </div>
       <div className={styles.btn}>
-        <Button text="次へ" onClick={() => history.push('/result')} />
+        <Button text="結果を見る" onClick={() => history.push('/result')} />
       </div>
     </div>
   )

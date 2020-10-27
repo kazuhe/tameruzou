@@ -21,7 +21,7 @@ export const Home: FC = () => {
         current={0}
         title="貯金管理をはじめよう"
         text={`たったの3分で毎月の貯金額を算出${'\n'}未来の為に貯金をはじめよう。`}
-      ></Step>
+      />
       <div className={styles.icon}>
         <HomeIcon />
       </div>

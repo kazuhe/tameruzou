@@ -17,7 +17,7 @@ export const BonusMonth: FC = () => {
   return (
     <div className={styles.wrap}>
       <Header />
-      <Step current={3} title="ボーナス月を設定してください"></Step>
+      <Step current={3} title="ボーナス月を設定してください" optional={true} />
       <div className={styles.content}>
         <BonusMonthContainer />
       </div>

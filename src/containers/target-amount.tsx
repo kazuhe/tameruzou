@@ -2,7 +2,7 @@
 import React, { FC } from 'react'
 
 // Original components
-import { InputMoneyComponent } from '../components/input-money'
+import { TargetAmountComponent } from '../components/target-amount'
 
 // Redux Toolkit
 import { useSelector } from 'react-redux'
@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux'
 
 import { setTargetAmount, addTargetAmount, handlError } from '../stores/simulation'
 
-export const InputMoneyContainer: FC = () => {
+export const TargetAmountContainer: FC = () => {
   const targetAmount = useSelector((state: RootState) => state.simulation.targetAmount.money)
   const isError = useSelector((state: RootState) => state.simulation.targetAmount.isTargetAmountError)
   const dispatch = useDispatch()
@@ -34,8 +34,7 @@ export const InputMoneyContainer: FC = () => {
   }
 
   return (
-    <InputMoneyComponent
-      title="目標金額"
+    <TargetAmountComponent
       money={targetAmount}
       isError={isError}
       isDisabled={false}

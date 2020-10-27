@@ -10,7 +10,7 @@ import { RootState } from '../stores'
 import { Header } from '../components/header'
 import { Button } from '../components/button'
 import { Step } from '../components/step'
-import { InputMoneyContainer } from '../containers/input-money'
+import { TargetAmountContainer } from '../containers/target-amount'
 
 // Css
 import styles from '../styles/target-amount.module.scss'
@@ -22,9 +22,9 @@ export const TargetAmount: FC = () => {
   return (
     <div className={styles.targetAmount}>
       <Header />
-      <Step current={1} title="目標貯金額を入力してください"></Step>
+      <Step current={1} title="目標貯金額を入力してください" />
       <div className={styles.content}>
-        <InputMoneyContainer />
+        <TargetAmountContainer />
       </div>
       <div className={styles.btn}>
         <Button text="次へ" isDisabled={targetAmount > 0 ? false : true} onClick={() => history.push('/term')} />

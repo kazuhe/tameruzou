@@ -24,7 +24,7 @@ export const Term: FC = () => {
   return (
     <div className={styles.term}>
       <Header />
-      <Step current={2} title="貯金の期間を選んでください"></Step>
+      <Step current={2} title="貯金の期間を選んでください" />
       <div className={styles.content}>
         <TermPickerContainer />
       </div>

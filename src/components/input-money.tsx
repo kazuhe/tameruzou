@@ -2,7 +2,7 @@
 import React, { FC } from 'react'
 
 // Css
-import styles from '../styles/input-money.module.scss'
+import styles from '../styles/components/input-money.module.scss'
 
 // Third party library
 import Tippy from '@tippyjs/react'
@@ -11,13 +11,12 @@ import 'tippy.js/dist/tippy.css'
 interface Props {
   title: string
   money: number
+  candidates?: number[]
   isError: boolean
   isDisabled?: boolean
   setMoney: (value: number) => void
   addMoney: (value: number) => void
 }
-
-const candidates = [5000, 10000, 100000, 1000000]
 
 export const InputMoneyComponent: FC<Props> = (props: Props) => (
   <>
@@ -33,12 +32,16 @@ export const InputMoneyComponent: FC<Props> = (props: Props) => (
         <span>円</span>
       </div>
     </Tippy>
-    <ul className={styles.list}>
-      {candidates.map((candidate) => (
-        <li key={candidate} onClick={() => props.addMoney(candidate)}>
-          +{candidate.toLocaleString()}
-        </li>
-      ))}
-    </ul>
+    {props.candidates ? (
+      <ul className={styles.list}>
+        {props.candidates.map((candidate) => (
+          <li key={candidate} onClick={() => props.addMoney(candidate)}>
+            +{candidate.toLocaleString()}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      ''
+    )}
   </>
 )

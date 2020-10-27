@@ -12,11 +12,11 @@ interface Props {
   addMoney: (value: number) => void
 }
 
-const candidates = [5000, 10000, 100000]
+const candidates = [5000, 10000, 100000, 1000000]
 
-export const BonusMoneyComponent: FC<Props> = (props: Props) => (
+export const TargetAmountComponent: FC<Props> = (props: Props) => (
   <InputMoneyComponent
-    title="ボーナス月貯金額"
+    title="目標金額"
     money={props.money}
     candidates={candidates}
     isError={props.isError}
