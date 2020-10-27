@@ -7,9 +7,6 @@ import styles from '../styles/components/result.module.scss'
 // UI Component
 import Switch from '@material-ui/core/Switch'
 
-// Types
-import { Bonus } from '../types'
-
 interface Props {
   startDate: string
   endDate: string

@@ -11,9 +11,6 @@ import { RootState } from '../stores'
 // Third party library
 import dayjs from 'dayjs'
 
-// Types
-import { Bonus } from '../types'
-
 export const ResultContainer: FC = () => {
   const targetAmount = useSelector((state: RootState) => state.simulation.targetAmount.money)
   const startDate = useSelector((state: RootState) => state.simulation.term.startDate)
