@@ -7,9 +7,11 @@ import styles from '../styles/term-picker.module.scss'
 // SVG Component
 import { Edit } from '../images/edit'
 
+// UI Component
+import Tooltip from '@material-ui/core/Tooltip'
+import { withStyles } from '@material-ui/core/styles'
+
 // Third party library
-import Tippy from '@tippyjs/react'
-import 'tippy.js/dist/tippy.css'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import ja from 'date-fns/locale/ja'
 registerLocale('ja', ja)
@@ -22,11 +24,19 @@ interface Props {
   handleEndDate: (date: Date) => void
 }
 
+const CustomTooltip = withStyles(() => ({
+  tooltip: {
+    backgroundColor: '#888',
+    fontSize: 13,
+    margin: 0,
+  },
+}))(Tooltip)
+
 const now = new Date()
 const placeholderText = now.getFullYear() + '年' + (now.getMonth() + 1) + '月'
 
 export const TermPickerComponent: FC<Props> = (props: Props) => (
-  <Tippy content="開始月より終了月を後に設定してください" visible={props.isError} className="tameruzou">
+  <CustomTooltip open={props.isError} title="開始月より終了月を後に設定してください" placement="top">
     <div>
       <div className={styles.unit}>
         <p>開始月</p>
@@ -53,5 +63,5 @@ export const TermPickerComponent: FC<Props> = (props: Props) => (
         <Edit size={18} />
       </div>
     </div>
-  </Tippy>
+  </CustomTooltip>
 )

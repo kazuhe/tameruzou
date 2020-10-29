@@ -13,6 +13,8 @@ interface Props {
   term: string
   targetAmount: number
   monthlyAmount: number
+  bonusMoney: number
+  bonusMonth: number[]
   switchState: boolean
   handleSwitch: () => void
 }
@@ -41,7 +43,8 @@ export const ResultComponent: FC<Props> = (props: Props) => {
             <div>
               <p className={styles.circle_title}>ボーナス月の貯金額</p>
               <p className={styles.circle_money}>
-                35,000<span>円</span>
+                {props.bonusMoney.toLocaleString()}
+                <span>円</span>
               </p>
             </div>
           </div>
@@ -59,17 +62,35 @@ export const ResultComponent: FC<Props> = (props: Props) => {
       </div>
       <div className={styles.bottom}>
         <p>
-          あなたが{props.term}で目標の{props.targetAmount.toLocaleString()}円を貯めるには
+          あなたが<span className={styles.strong}>{props.term}</span>で<br />
+          目標金額の<span className={styles.strong}>{props.targetAmount.toLocaleString()}</span>円を貯めるには
         </p>
-        <p>
-          <span>毎月</span>
-          {props.monthlyAmount.toLocaleString()}
-          <span>円</span>
-        </p>
-        <p>
-          <span>ボーナス月</span>35,000<span>円</span>
-        </p>
-        <p>貯金していく必要があります。</p>
+        <div className={styles.card}>
+          毎月
+          <span className={styles.strong}>{props.monthlyAmount.toLocaleString()}</span>円<br />
+          ボーナス月<span className={styles.strong}>35,000</span>円 （
+          {props.bonusMonth.map((month) => (
+            <span key={month}>{month}月 / </span>
+          ))}
+          ）
+        </div>
+        <p>を貯金していく必要があります。</p>
+
+        <div className={styles.twitter}>
+          <a
+            href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+            className="twitter-share-button"
+            data-size="large"
+            data-text="Test!"
+            data-url="https://tameruzou.netlify.app/"
+            data-hashtags="tameruzou"
+            data-related="kazuhe__"
+            data-show-count="false"
+          >
+            結果をツイートする
+          </a>
+          <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+        </div>
       </div>
     </>
   )

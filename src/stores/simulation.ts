@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Bonus, Month } from '../types'
+import { Month } from '../types'
 
 type State = {
   targetAmount: {
@@ -13,8 +13,7 @@ type State = {
   }
   bonus: {
     months: Month
-    bonuses: Bonus[]
-    isBonusError: boolean
+    money: number
   }
 }
 
@@ -43,8 +42,7 @@ const initialState: State = {
       11: false,
       12: false,
     },
-    bonuses: [],
-    isBonusError: false,
+    money: 0,
   },
 }
 
@@ -79,32 +77,14 @@ const simulation = createSlice({
       state.term.isTermError = action.payload
     },
 
-    // bonuses
+    // bonus
     toggleBonusMonth: (state, action) => {
       const key: keyof Month = action.payload
       console.log(key)
       state.bonus.months[key] = !state.bonus.months[key]
-
-      // Object.keys(state.bonus.months).filter((key) => key == action.payload.id)
-      // Object.entries(state.bonus.months).forEach(([key, value]) => {
-      //   const numKey = Number(key)
-      //   console.log(key)
-      //   console.log(action.payload)
-      //   console.log(state.bonus.months[1])
-      //   if (key == action.payload) {
-      //     // console.log(key)
-      //     // state.bonus.months.item(key) = !state.bonus.months.item(key)
-      //   }
-      // })
     },
-    addBonus: (state, action) => {
-      state.bonus.bonuses = [action.payload, ...state.bonus.bonuses]
-    },
-    deleteBonus: (state, action) => {
-      state.bonus.bonuses = state.bonus.bonuses.filter((bonus) => bonus.id !== action.payload.id)
-    },
-    handleBonusError: (state, action) => {
-      state.bonus.isBonusError = action.payload
+    setBonusMoney: (state, action) => {
+      state.bonus.money = action.payload
     },
   },
 })
@@ -118,9 +98,7 @@ export const {
   endStartDate,
   handleTermError,
   toggleBonusMonth,
-  addBonus,
-  deleteBonus,
-  handleBonusError,
+  setBonusMoney,
 } = simulation.actions
 
 // Reducerをエクスポート

@@ -13,6 +13,8 @@ import dayjs from 'dayjs'
 
 export const ResultContainer: FC = () => {
   const targetAmount = useSelector((state: RootState) => state.simulation.targetAmount.money)
+  const bonusMoney = useSelector((state: RootState) => state.simulation.bonus.money)
+  const bonusMonth = useSelector((state: RootState) => state.simulation.bonus.months)
   const startDate = useSelector((state: RootState) => state.simulation.term.startDate)
   const endDate = useSelector((state: RootState) => state.simulation.term.endDate)
 
@@ -28,28 +30,13 @@ export const ResultContainer: FC = () => {
   }
 
   // 毎月の貯金額を計算
-  const monthlyAmount = targetAmount / diff
+  const monthlyAmount = Math.floor(targetAmount / diff)
 
-  // const setLabels = () => {
-  //   for (let i = 0; i < diff; i++) {
-  //     labels.push(
-  //       dayjs(startDate || 0)
-  //         .add(i, 'month')
-  //         .format('MM/YYYY')
-  //     )
-  //   }
-  // }
-  // setLabels()
-
-  // dataに月ごとの貯金額をセット
-  // const data: number[] = []
-  // const monthlyAmount = targetAmount / diff
-  // const setData = () => {
-  //   for (let i = 0; i < diff; i++) {
-  //     data.push((monthlyAmount * i) / 10000)
-  //   }
-  // }
-  // setData()
+  // ボーナス月の配列を作成
+  const activeMonth: number[] = []
+  Object.entries(bonusMonth).forEach(([key, value]) => {
+    if (value) activeMonth.push(Number(key))
+  })
 
   // Switch 状態管理
   const [switchState, setSwitchState] = useState(true)
@@ -64,6 +51,8 @@ export const ResultContainer: FC = () => {
       term={getYearMonth()}
       targetAmount={targetAmount}
       monthlyAmount={monthlyAmount}
+      bonusMoney={bonusMoney}
+      bonusMonth={activeMonth}
       switchState={switchState}
       handleSwitch={handleSwitchState}
     />

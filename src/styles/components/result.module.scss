@@ -2,7 +2,7 @@
 
 .wrap {
   background: $mainColor;
-  padding: 35px 25px;
+  padding: 25px;
 }
 
 .circle {
@@ -13,7 +13,7 @@
   display: flex;
   height: 250px;
   justify-content: center;
-  margin: 40px auto 0;
+  margin: 15px auto 0;
   text-align: center;
   width: 250px;
 
@@ -57,7 +57,7 @@
 }
 
 .switch {
-  margin-top: 25px;
+  margin-top: 5px;
   text-align: center;
 
   > p {
@@ -70,6 +70,34 @@
 }
 
 .bottom {
+  background: $highGray;
+  color: #34353c;
+  font-size: 1.4rem;
+  line-height: 1.4;
   padding: 25px;
   text-align: center;
+
+  div + p {
+    margin-top: 15px;
+  } 
+}
+
+.card {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 3px 0 rgba(0,0,0,0.12);
+  font-weight: 500;
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.strong {
+  color: $textColor;
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0 3px;
+}
+
+.twitter {
+  margin-top: 15px;
 }
