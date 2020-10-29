@@ -1,103 +1,68 @@
 @import '../_define';
 
 .wrap {
-  background: $mainColor;
-  padding: 25px;
-}
-
-.circle {
   align-items: center;
-  background: lighten($mainColor, 10%);
-  border-radius: 100%;
-  color: #fff;
-  display: flex;
-  height: 250px;
-  justify-content: center;
-  margin: 15px auto 0;
-  text-align: center;
-  width: 250px;
-
-  &_bonus {
-    background: #ccc;
-    composes: circle;
-  }
-  
-  &_title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1;
-  }
-
-  &_money {
-    font-size: 4rem;
-    font-weight: 500;
-    line-height: 1;
-    margin-top: 10px;
-
-    > span {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-left: 5px;
-    }
-  }
-}
-
-.term {
-  align-items: center;
-  color: #fff;
-  display: flex;
-  font-size: 1.3rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-
-  > p {
-    padding: 0 10px;
-  }
-}
-
-.switch {
-  margin-top: 5px;
-  text-align: center;
-
-  > p {
-    color: #fff;
-    font-size: 1.3rem;
-    font-weight: 500;
-    line-height: 1;
-    margin-top: 3px;
-  }
-}
-
-.bottom {
   background: $highGray;
-  color: #34353c;
-  font-size: 1.4rem;
-  line-height: 1.4;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
   padding: 25px;
-  text-align: center;
-
-  div + p {
-    margin-top: 15px;
-  } 
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
 }
 
 .card {
   background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 3px 0 rgba(0,0,0,0.12);
-  font-weight: 500;
-  margin-top: 15px;
-  padding: 15px;
-}
+  border-radius: 5px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  overflow: hidden;
 
-.strong {
-  color: $textColor;
-  font-size: 2rem;
-  font-weight: 500;
-  margin: 0 3px;
-}
+  > img {
+    display: block;
+    height: 140px;
+    object-fit: cover;
+    width: 100%;
+  }
 
-.twitter {
-  margin-top: 15px;
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  &_inner {
+    padding: 15px;
+  }
+
+  dl {
+    align-items: center;
+    color: $deepGray;
+    display: flex;
+    font-size: 1.3rem;
+
+    dt {
+      margin-right: 5px;
+    }
+
+    dd > span:nth-last-child(n+2)::after {
+      content: '/';
+      margin: 0 2px;
+    }
+  }
+
+  &_footer {
+    margin-top: 15px;
+    text-align: right;
+  }
+
+  a {
+    background: $mainColor;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 9px 10px 7px;
+    text-decoration: none;
+  }
 }

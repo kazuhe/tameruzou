@@ -4,9 +4,6 @@ import React, { FC } from 'react'
 // Css
 import styles from '../styles/components/result.module.scss'
 
-// UI Component
-import Switch from '@material-ui/core/Switch'
-
 interface Props {
   startDate: string
   endDate: string
@@ -19,79 +16,48 @@ interface Props {
   handleSwitch: () => void
 }
 
-export const ResultComponent: FC<Props> = (props: Props) => {
-  const bonusColor = { background: '#222d65' }
-
-  return (
-    <>
-      <div className={styles.wrap}>
-        <div className={styles.term}>
-          <p>{props.startDate}</p>-<p>{props.endDate}</p>
-        </div>
-        {props.switchState ? (
-          <div className={styles.circle}>
-            <div>
-              <p className={styles.circle_title}>毎月の貯金額</p>
-              <p className={styles.circle_money}>
-                {props.monthlyAmount.toLocaleString()}
-                <span>円</span>
-              </p>
-            </div>
-          </div>
-        ) : (
-          <div className={styles.circle} style={bonusColor}>
-            <div>
-              <p className={styles.circle_title}>ボーナス月の貯金額</p>
-              <p className={styles.circle_money}>
-                {props.bonusMoney.toLocaleString()}
-                <span>円</span>
-              </p>
-            </div>
-          </div>
-        )}
-        <div className={styles.switch}>
-          <Switch
-            checked={props.switchState}
-            onChange={props.handleSwitch}
-            name="checkedA"
-            color="default"
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
-          <p>{props.switchState ? 'ボーナス月の貯金額を表示' : '毎月の貯金額を表示'}</p>
-        </div>
-      </div>
-      <div className={styles.bottom}>
-        <p>
-          あなたが<span className={styles.strong}>{props.term}</span>で<br />
-          目標金額の<span className={styles.strong}>{props.targetAmount.toLocaleString()}</span>円を貯めるには
-        </p>
-        <div className={styles.card}>
-          毎月
-          <span className={styles.strong}>{props.monthlyAmount.toLocaleString()}</span>円<br />
-          ボーナス月<span className={styles.strong}>35,000</span>円 （
-          {props.bonusMonth.map((month) => (
-            <span key={month}>{month}月 / </span>
-          ))}
-          ）
-        </div>
-        <p>を貯金していく必要があります。</p>
-
-        <div className={styles.twitter}>
+export const ResultComponent: FC<Props> = (props: Props) => (
+  <div className={styles.wrap}>
+    <div className={styles.card}>
+      <img src={`${process.env.PUBLIC_URL}/result.png`} alt="" />
+      <div className={styles.card_inner}>
+        <h2>貯金計画</h2>
+        <dl>
+          <dt>期間 : </dt>
+          <dd>
+            {props.startDate} ~ {props.endDate} （{props.term}）
+          </dd>
+        </dl>
+        <dl>
+          <dt>目標金額 : </dt>
+          <dd>{props.targetAmount.toLocaleString()}円</dd>
+        </dl>
+        <dl>
+          <dt>毎月の貯金額 : </dt>
+          <dd>{props.monthlyAmount.toLocaleString()}円</dd>
+        </dl>
+        <dl>
+          <dt>ボーナス月の貯金額 : </dt>
+          <dd>
+            {props.bonusMoney.toLocaleString()}円（
+            {props.bonusMonth.map((month) => (
+              <span key={month}>{month}月</span>
+            ))}
+            ）
+          </dd>
+        </dl>
+        <div className={styles.card_footer}>
           <a
-            href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-            className="twitter-share-button"
-            data-size="large"
-            data-text="Test!"
-            data-url="https://tameruzou.netlify.app/"
-            data-hashtags="tameruzou"
-            data-related="kazuhe__"
-            data-show-count="false"
+            href={`https://twitter.com/share?url=https://tameruzou.netlify.app/&hashtags=tameruzou&text=【貯金計画】%0a期間 : ${
+              props.startDate
+            } ~ ${
+              props.endDate
+            }%0a目標金額 : ${props.targetAmount.toLocaleString()}円%0a毎月の貯金額 : ${props.monthlyAmount.toLocaleString()}円%0aボーナス月の貯金額 : ${props.bonusMoney.toLocaleString()}円`}
           >
-            結果をツイートする
+            結果をTweet
           </a>
-          <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
         </div>
       </div>
-    </>
-  )
-}
+    </div>
+  </div>
+)
