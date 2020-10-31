@@ -13,6 +13,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 // Third party library
 import DatePicker, { registerLocale } from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import ja from 'date-fns/locale/ja'
 registerLocale('ja', ja)
 

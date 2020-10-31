@@ -5,7 +5,7 @@ import React, { FC } from 'react'
 import styles from '../styles/step.module.scss'
 
 interface Props {
-  current: number
+  current?: number
   title: string
   text?: string
   optional?: boolean
@@ -13,12 +13,15 @@ interface Props {
 
 export const Step: FC<Props> = (props: Props) => (
   <div className={styles.step}>
-    <nav className={styles.nav}>
-      STEP<span className={styles.current}> {props.current}</span>/4
-      {props.optional ? <span className={styles.optional}>省略可</span> : ''}
-    </nav>
+    {props.current ? (
+      <nav className={styles.nav}>
+        STEP<span className={styles.current}> {props.current}</span>/4
+        {props.optional ? <span className={styles.optional}>省略可</span> : ''}
+      </nav>
+    ) : (
+      ''
+    )}
     <h2 className={styles.title}>{props.title}</h2>
-
     <p className={styles.text}>{props.text}</p>
   </div>
 )
