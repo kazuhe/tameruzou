@@ -20,7 +20,7 @@ export const Home: FC = () => {
       <Step
         current={0}
         title="貯金管理をはじめよう"
-        text={`たったの3分で毎月の貯金額を算出${'\n'}未来の為に貯金をはじめよう。`}
+        text={`たったの3分で毎月の必要貯金額を算出${'\n'}未来の為に貯金をはじめよう。`}
       />
       <div className={styles.icon}>
         <HomeIcon />

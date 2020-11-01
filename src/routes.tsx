@@ -14,11 +14,11 @@ const Routes: FC = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/target-amount" component={TargetAmount} />
-        <Route path="/term" component={Term} />
-        <Route path="/bonus-month" component={BonusMonth} />
-        <Route path="/bonus-money" component={BonusMoney} />
-        <Route path="/result" component={Result} />
+        <Route path="/target-amount" exact component={TargetAmount} />
+        <Route path="/term" exact component={Term} />
+        <Route path="/bonus-month" exact component={BonusMonth} />
+        <Route path="/bonus-money" exact component={BonusMoney} />
+        <Route path="/result" exact component={Result} />
         <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>

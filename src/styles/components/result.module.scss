@@ -5,6 +5,7 @@
   background: $highGray;
   bottom: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   left: 0;
   padding: 25px;
@@ -66,4 +67,11 @@
     padding: 9px 10px 7px;
     text-decoration: none;
   }
+}
+
+.text {
+  color: $trueGray;
+  font-size: 1rem;
+  margin-top: 15px;
+  text-align: right;
 }

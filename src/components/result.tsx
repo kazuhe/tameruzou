@@ -12,8 +12,6 @@ interface Props {
   monthlyAmount: number
   bonusMoney: number
   bonusMonth: number[]
-  switchState: boolean
-  handleSwitch: () => void
 }
 
 export const ResultComponent: FC<Props> = (props: Props) => (
@@ -33,7 +31,7 @@ export const ResultComponent: FC<Props> = (props: Props) => (
           <dd>{props.targetAmount.toLocaleString()}円</dd>
         </dl>
         <dl>
-          <dt>毎月の貯金額 : </dt>
+          <dt>毎月の必要貯金額 : </dt>
           <dd>{props.monthlyAmount.toLocaleString()}円</dd>
         </dl>
         <dl>
@@ -59,5 +57,6 @@ export const ResultComponent: FC<Props> = (props: Props) => (
         </div>
       </div>
     </div>
+    <p className={styles.text}>※「毎月の必要貯金額」は四捨五入で計算しています。</p>
   </div>
 )
