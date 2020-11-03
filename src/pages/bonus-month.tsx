@@ -9,7 +9,7 @@ import { Step } from '../components/step'
 import { BonusMonthContainer } from '../containers/bonus-month'
 
 // Css
-import styles from '../styles/bonus.module.scss'
+import styles from '../styles/pages/bonus.module.scss'
 
 export const BonusMonth: FC = () => {
   const history = useHistory()

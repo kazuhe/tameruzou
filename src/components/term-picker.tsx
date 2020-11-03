@@ -2,7 +2,7 @@
 import React, { FC } from 'react'
 
 // Css
-import styles from '../styles/term-picker.module.scss'
+import styles from '../styles/components/term-picker.module.scss'
 
 // SVG Component
 import { Edit } from '../images/edit'
@@ -17,7 +17,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import ja from 'date-fns/locale/ja'
 registerLocale('ja', ja)
 
-interface Props {
+type Props = {
   startDate: Date | null
   endDate: Date | null
   isError: boolean

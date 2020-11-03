@@ -2,9 +2,9 @@
 import React, { FC } from 'react'
 
 // Css
-import styles from '../styles/step.module.scss'
+import styles from '../styles/components/step.module.scss'
 
-interface Props {
+type Props = {
   current?: number
   title: string
   text?: string

@@ -2,7 +2,7 @@
 import React, { FC } from 'react'
 
 // Css
-import styles from '../styles/button.module.scss'
+import styles from '../styles/components/button.module.scss'
 
 type Props = {
   isDisabled?: boolean

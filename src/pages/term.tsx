@@ -13,7 +13,7 @@ import { Step } from '../components/step'
 import { TermPickerContainer } from '../containers/term-picker'
 
 // Css
-import styles from '../styles/term.module.scss'
+import styles from '../styles/pages/term.module.scss'
 
 export const Term: FC = () => {
   const history = useHistory()

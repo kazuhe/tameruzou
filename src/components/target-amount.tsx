@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 // Original components
 import { InputMoneyComponent } from '../components/input-money'
 
-interface Props {
+type Props = {
   money: number
   isError: boolean
   isDisabled?: boolean

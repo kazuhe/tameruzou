@@ -8,7 +8,7 @@ import styles from '../styles/components/input-money.module.scss'
 import Tooltip from '@material-ui/core/Tooltip'
 import { withStyles } from '@material-ui/core/styles'
 
-interface Props {
+type Props = {
   title: string
   money: number
   candidates?: number[]

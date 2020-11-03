@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 // Css
 import styles from '../styles/components/result.module.scss'
 
-interface Props {
+type Props = {
   startDate: string
   endDate: string
   term: string
@@ -37,11 +37,8 @@ export const ResultComponent: FC<Props> = (props: Props) => (
         <dl>
           <dt>ボーナス月の貯金額 : </dt>
           <dd>
-            {props.bonusMoney.toLocaleString()}円（
-            {props.bonusMonth.map((month) => (
-              <span key={month}>{month}月</span>
-            ))}
-            ）
+            {props.bonusMonth.length && props.bonusMoney.toLocaleString()}円（
+            {props.bonusMoney && props.bonusMonth.map((month) => <span key={month}>{month}月</span>)}）
           </dd>
         </dl>
         <div className={styles.card_footer}>
@@ -58,5 +55,8 @@ export const ResultComponent: FC<Props> = (props: Props) => (
       </div>
     </div>
     <p className={styles.text}>※「毎月の必要貯金額」は四捨五入で計算しています。</p>
+    <p className={styles.text}>
+      ※「ボーナス月の貯金額」はボーナス月（STEP3）とボーナス月の貯金額（STEP4）が選択・入力されていない場合は0円表示となります。
+    </p>
   </div>
 )

@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import { Arrow } from '../images/arrow'
 
 // Css
-import styles from '../styles/header.module.scss'
+import styles from '../styles/components/header.module.scss'
 
 export const Header: FC = () => {
   const history = useHistory()

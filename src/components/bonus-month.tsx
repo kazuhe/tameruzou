@@ -2,13 +2,10 @@
 import React, { FC } from 'react'
 
 // Css
-import styles from '../styles/bonus-month.module.scss'
+import styles from '../styles/components/bonus-month.module.scss'
 
-// Types
-import { Month } from '../types'
-
-interface Props {
-  months: Month
+type Props = {
+  months: { id: number; value: string }[]
   activeMonth: number[]
   toggleMonth: (month: number) => void
 }
@@ -17,13 +14,13 @@ export const BonusMonthComponent: FC<Props> = (props: Props) => (
   <div className={styles.wrap}>
     <p>クリックしてアクティブにしてください（複数選択可）</p>
     <ul className={styles.list}>
-      {Object.keys(props.months).map((month) => (
+      {props.months.map((month) => (
         <li
-          key={month}
-          onClick={() => props.toggleMonth(Number(month))}
-          className={props.activeMonth.some((n) => n === Number(month)) ? styles.active : ''}
+          key={month.id}
+          onClick={() => props.toggleMonth(month.id)}
+          className={props.activeMonth.some((n) => n === month.id) ? styles.active : ''}
         >
-          {month}月
+          {month.value}
         </li>
       ))}
     </ul>

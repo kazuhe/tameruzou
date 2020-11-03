@@ -10,7 +10,7 @@ import { Step } from '../components/step'
 import { HomeIcon } from '../images/home-icon'
 
 // Css
-import styles from '../styles/home.module.scss'
+import styles from '../styles/pages/home.module.scss'
 
 export const Home: FC = () => {
   const history = useHistory()
@@ -26,7 +26,7 @@ export const Home: FC = () => {
         <HomeIcon />
       </div>
       <div className={styles.btn}>
-        <Button text="Start" onClick={() => history.push('/target-amount')} />
+        <Button text="はじめる" onClick={() => history.push('/target-amount')} />
       </div>
     </div>
   )

@@ -13,7 +13,7 @@ import { Step } from '../components/step'
 import { TargetAmountContainer } from '../containers/target-amount'
 
 // Css
-import styles from '../styles/target-amount.module.scss'
+import styles from '../styles/pages/target-amount.module.scss'
 
 export const TargetAmount: FC = () => {
   const history = useHistory()
