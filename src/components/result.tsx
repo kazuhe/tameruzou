@@ -43,11 +43,11 @@ export const ResultComponent: FC<Props> = (props: Props) => (
         </dl>
         <div className={styles.card_footer}>
           <a
-            href={`https://twitter.com/share?url=https://tameruzou.netlify.app/&hashtags=tameruzou&text=【貯金計画】%0a期間 : ${
+            href={`https://twitter.com/share?url=https://tameruzou.netlify.app/&hashtags=tameruzou&text=貯金計画を立ててみた！%0a%0a📆 期間 : ${
               props.startDate
             } ~ ${
               props.endDate
-            }%0a目標金額 : ${props.targetAmount.toLocaleString()}円%0a毎月の貯金額 : ${props.monthlyAmount.toLocaleString()}円%0aボーナス月の貯金額 : ${props.bonusMoney.toLocaleString()}円`}
+            }%0a🚩 目標金額 : ${props.targetAmount.toLocaleString()}円%0a💵 毎月の貯金額 : ${props.monthlyAmount.toLocaleString()}円%0a💰 ボーナス月の貯金額 : ${props.bonusMoney.toLocaleString()}円%0a`}
           >
             結果をTweet
           </a>

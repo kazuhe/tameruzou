@@ -4,7 +4,6 @@ import { Month } from '../types'
 type State = {
   targetAmount: {
     money: number
-    isTargetAmountError: boolean
   }
   term: {
     startDate: Date | null
@@ -20,7 +19,6 @@ type State = {
 const initialState: State = {
   targetAmount: {
     money: 0,
-    isTargetAmountError: false,
   },
   term: {
     startDate: null,
@@ -62,9 +60,6 @@ const simulation = createSlice({
     addTargetAmount: (state, action) => {
       state.targetAmount.money = state.targetAmount.money + action.payload
     },
-    handlError: (state, action) => {
-      state.targetAmount.isTargetAmountError = action.payload
-    },
 
     // term
     setStartDate: (state, action) => {
@@ -80,7 +75,6 @@ const simulation = createSlice({
     // bonus
     toggleBonusMonth: (state, action) => {
       const key: keyof Month = action.payload
-      console.log(key)
       state.bonus.months[key] = !state.bonus.months[key]
     },
     setBonusMoney: (state, action) => {
@@ -93,7 +87,6 @@ const simulation = createSlice({
 export const {
   setTargetAmount,
   addTargetAmount,
-  handlError,
   setStartDate,
   endStartDate,
   handleTermError,
