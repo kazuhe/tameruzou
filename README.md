@@ -9,41 +9,31 @@
   - [CSS](#css)
 - [Git管理](#git管理)
 
-## アプリ詳細
-https://tameruzou.netlify.app/
+# アプリ概要
+ひとことで言うなら貯金シミュレーションアプリです。
 
-このリポジトリはReactの勉強の為に作られた何の変哲もないWebアプリである。  
-貯金を簡易にシミュレートすることができる。
+- アプリ - https://tameruzou.netlify.app/
+- GitHub - https://github.com/kazuhe/tameruzou
 
-## アプリ設計
-使用しているライブラリや実装の際に気をつけた点をまとめている。
+目標貯金額・貯金期間・ボーナス月（任意）・ボーナス月の貯金額（任意）をユーザに入力させて、目標貯金額を達成する為には毎月何円貯金する必要があるのか計算するシンプルな作りです。
 
-### Component
-- 関数コンポーネントで見た目だけを整えた「Presentational Component（`Components`）」
-- 「Presentational Component」をインポートして`Hooks`や`HOC`で必要な機能を追加し、処理を担う「Container Component（`Containers`）」  
-上記のそれぞれを`components/`と`containers/`に分けて、対応するファイルを同じ名前・同じ階層に置く。
+# 構成
+State管理とViewの責務を分割したコンポーネント設計を意識して下図の様な構成。
 
-### 状態管理
-状態管理にはRedux公式が推奨している`Redux Toolkit`を使用。
-`dispatch`は「Container Component（`Containers`）」からのみ行う。参照はどこからしても良い。  
+![tameruzou構成](https://storage.googleapis.com/zenn-user-upload/tr5rx2y769b6f73vah07da5r6lx5)
 
-### Router
-ルーティングモジュールは2020年現在デファクトスタンダードである「[React Router](https://github.com/ReactTraining/react-router)」を採用し、`react-router-dom`をインストールして使用している。
+## Presentational Component
+Presentational Component（以下、「Component」とする）はViewを担当するコンポーネントで、どの様に見えるかだけに関心を持つ。今回のアプリでは`components/`以下に配置してPropsとして受け取ったデータを変更せずに表示させている。
 
-### Deploy
-Netlifyの無料枠を利用し当リポジトリと連携している。`master`ブランチに`push`すると自動でデプロイされる。
+## Container Component
+Container Component（以下、「Container」とする）は状態管理を担当するコンポーネントで、どの様に機能するかに関心を持つ。今回のアプリでは`containers/`以下に配置しており、ReduxのStoreとデータのやり取りをして必要であれば変更を加えてComponentに渡す。
 
-### Datepicker
-日付入力には[react-datepicker](https://github.com/Hacker0x01/react-datepicker/)を使用している。
+また、ルールとしてContainerはデータを渡すComponentと同ファイル名で作成する。
 
-### Tooltip
-ツールチップは[@tippyjs/react](https://github.com/atomiks/tippyjs-react)を使用している。
+## Redux Toolkit
+公式でRedux Toolkitを推奨しているので採用。今回のアプリでは`stores/`以下に関連ファイル配置。
 
-### CSS
-CSSは`CSS Modules`を採用。BEMの短縮形を採用。
-ひとつのコンポーネントに対応するCSSファイルを`styles/`配下に配置する。
-
-## Git管理
+# Git管理
 コミットメッセージには必ずステータスを記載する。また、commitは可能な範囲で細かく行う。
 ``` bash
 # [add] 機能 / ファイル追加
