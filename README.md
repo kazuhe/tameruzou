@@ -17,6 +17,22 @@
 
 目標貯金額・貯金期間・ボーナス月（任意）・ボーナス月の貯金額（任意）をユーザに入力させて、目標貯金額を達成する為には毎月何円貯金する必要があるのか計算するシンプルな作りです。
 
+# ディレクトリ
+今回はscssを`styles`に完全にコンポーネントと別のディレクトリに配置しています。
+``` bash
+src
+ ├─ components  # Viewを担当するコンポーネント郡
+ ├─ containers  # 状態管理を担当するコンポーネント郡
+ ├─ images
+ ├─ pages  # ルーティングに紐付くコンポーネント郡
+ ├─ stores  # Redux Toolkitに関するファイル郡
+ └─ styles  # 各コンポーネントに紐付くscssファイル郡
+     ├─ common
+     ├─ components
+     └─ pages
+```
+が、次は https://zenn.dev/takepepe/articles/hygen-template-generator を参考にさせていただいて「hygen」使ってみたいなと思います。
+
 # 構成
 State管理とViewの責務を分割したコンポーネント設計を意識して下図の様な構成。
 
