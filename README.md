@@ -1,14 +1,3 @@
-- [アプリ詳細](#アプリ詳細)
-- [アプリ設計](#アプリ設計)
-  - [Component](#component)
-  - [状態管理](#状態管理)
-  - [Router](#router)
-  - [Deploy](#deploy)
-  - [Datepicker](#datepicker)
-  - [Tooltip](#tooltip)
-  - [CSS](#css)
-- [Git管理](#git管理)
-
 # アプリ概要
 ひとことで言うなら貯金シミュレーションアプリです。
 
@@ -18,7 +7,6 @@
 目標貯金額・貯金期間・ボーナス月（任意）・ボーナス月の貯金額（任意）をユーザに入力させて、目標貯金額を達成する為には毎月何円貯金する必要があるのか計算するシンプルな作りです。
 
 # ディレクトリ
-今回はscssを`styles`に完全にコンポーネントと別のディレクトリに配置しています。
 ``` bash
 src
  ├─ components  # Viewを担当するコンポーネント郡
@@ -31,7 +19,6 @@ src
      ├─ components
      └─ pages
 ```
-が、次は https://zenn.dev/takepepe/articles/hygen-template-generator を参考にさせていただいて「hygen」使ってみたいなと思います。
 
 # 構成
 State管理とViewの責務を分割したコンポーネント設計を意識して下図の様な構成。
